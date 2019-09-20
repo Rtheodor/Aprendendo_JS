@@ -9,57 +9,55 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 		<script type="text/javascript">
-			
-		function calcular(){
+			function calcular(){
 
-			var operacao = document.getElementById('operacao').value;
+				var operacao = document.getElementById('operacao').value;
 
-			var num1 = document.getElementById('num1').value;
+				var num1 = document.getElementById('num1').value;
 
-			var num2 = document.getElementById('num2').value;
+				var num2 = document.getElementById('num2').value;
 
-
-
-			if(num1 == '' || num1 == null){
-
-				alert('Por favor digitar um numéro para validação. campo 1');
-				return false;
-			}
-
-			if(num2 == '' || num2 == null){
-
-				alert('Por favor digitar um numéro para validação. campo 2');
-				return false;
-			}
+				//Forçando o tipo de variaveis
+				num1 = parseFloat(num1);
+				num2 = parseFloat(num2);
 
 
-			var resultado = null;
+				if(num1 == '' || num1 == null){
+					alert('Favor digitar um numero valido para operação campo 1');
+					return false;
+				}
 
-			switch(operacao){
+				if(num2 == '' || num2 == null){
+					alert('Favor digitar um numero valido para operação campo 2');
+					return false;
+				}
 
-				case '1': //subtração
-				resultado = num1 - num2;
+				var resultado = null;
+				switch(operacao){
+
+				case '1'://subtração
+					resultado = num1 - num2;
 				break;
 				
-				case '2': //adição
-				resultado = num1 + num2;
-				break;
-				
-				case '3': //multiplicacão
-				resultado = num1 * num2;
+				case '2'://adição
+					resultado = num1 + num2;
 				break;
 
-				case '4': //divisão
-				resultado = num1 / num2;
+				case '3'://multiplicação
+					resultado = num1 * num2;
+				break;
+
+				case '4'://divisão
+					resultado = num1 / num2;
 				break;
 
 				default:
-				alert('A opção selecionada é invalida');
+				 alert('A opção do calculo é invalida');
 				return false;
+				}
+				document.getElementById('resultado').value = resultado;
+				
 			}
-
-			alert(operacao);
-		}
 
 		</script>
 	</head>
@@ -75,11 +73,11 @@
 
 			<div class="row">
 				<div class="col-md-4">
-					<input  id='num1' type="text" class="form-control" placeholder="Digite um número" />
+					<input id="num1" type="text" class="form-control" placeholder="Digite um número" />
 				</div>
 
 				<div class="col-md-4">
-					<select id='operacao' class="form-control">
+					<select id="operacao" class="form-control">
 						<option value="">--Selecione uma operação</option>
 						<option value="1">Subtração</option>
 						<option value="2">Adição</option>
@@ -89,7 +87,7 @@
 				</div>
 
 				<div class="col-md-4">
-					<input id='num2' type="text" class="form-control" placeholder="Digite um número"/>
+					<input id="num2" type="text" class="form-control" placeholder="Digite um número"/>
 				</div>
 			</div>
 
@@ -108,7 +106,7 @@
 			<hr />
 
 			<div class="well">
-				Resultado: <input type="text" class="form-control" readonly/>
+				Resultado: <input id="resultado" type="text" class="form-control" readonly/>
 			</div>
 		</div>
 	</body>
