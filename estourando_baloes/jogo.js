@@ -8,17 +8,25 @@ function iniciaJogo(){
 
 	var tempo_segundos = 0;
 
-	if (nivel_jogo == 1) {//1 fase -> 120 segundos
-
-		tempo_segundos = 120;
+	if (nivel_jogo == 1) {//1 fase -> 240 segundos (apenas mais um if com o dobro do tempo nivel_jogo == 2) adicionar nas option value (nivel_jogo da index.html)
+		tempo_segundos = 400;
 	}
-	if (nivel_jogo == 2) {//2 normal -> 60 segundos
+	if (nivel_jogo == 2) {//2 fase -> 120 segundos
+
+		tempo_segundos = 200;
+	}
+	if (nivel_jogo == 3) {//3 normal -> 60 segundos
 
 		tempo_segundos = 60;
 	}
-		if (nivel_jogo == 3) {//3 difícil -> 30 segundos
+		if (nivel_jogo == 4) {//4 difícil -> 30 segundos
 
 		tempo_segundos =30;
+	}
+	if (nivel_jogo == 5){//5 hardest -> 15 segundos (apenas mais um if com metade do tempo nivel_jogo == 4) adicionar nas option value (nivel_jogo da index.html)
+
+		tempo_segundos = 15;
+
 	}
 
 	// inderindo segundos no span
@@ -115,7 +123,7 @@ function parar_jogo(){
 function remove_eventos_baloes() {
     var i = 1; //contado para recuperar balões por id
     
-    //percorre o lementos de acordo com o id e só irá sair do laço quando não houver correspondência com elemento
+    //percorre o elementos de acordo com o id e só irá sair do laço quando não houver correspondência com elemento
     while(document.getElementById('b'+i)) {
         //retira o evento onclick do elemnto
         document.getElementById('b'+i).onclick = '';
